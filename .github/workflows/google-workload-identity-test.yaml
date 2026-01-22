@@ -15,7 +15,7 @@ jobs:
         uses: "google-github-actions/auth@v1"
         with:
           workload_identity_provider: "projects/civil-victory-366323/locations/global/workloadIdentityPools/github-actions/providers/github"
-          service_account: "iret-test"
+          service_account: "iret-test@civil-victory-366323.iam.gserviceaccount.com"
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
         with:
