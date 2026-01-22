@@ -1,0 +1,24 @@
+name: test
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - id: "auth"
+        name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v1"
+        with:
+          workload_identity_provider: "projects/civil-victory-366323/locations/global/workloadIdentityPools/github-actions/providers/github"
+          service_account: "iret-test"
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v1"
+        with:
+          version: ">= 379.0.0"
+      - name: "Upload test file"
+        run: 'echo "test" > test.txt && gsutil cp test.txt gs://<用意したGCSバケット名>'

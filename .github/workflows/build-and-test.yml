@@ -1,8 +1,35 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #     - "releases/**"
+  #   # branches-ignore:
+  #   #   - "dev-*"
+  #   #   - "feature/*"
+  #   paths:
+  #     - "**.js"
+  #     - "**.jsx"
+  #     - "package.json"
+  #   # paths-ignore:
+  #   #   - "docs/**"
+  #   #   - "**.md"
+  #   # tags:
+  #   #   - "v*"
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - synchronize
+  #     - reopened
+  #   branches:
+  #     - main
+  #     - develop
+  #   paths:
+  #     - "**.js"
+  #     - "**.jsx"
+  #     - "package.json"
 
 jobs:
   build:
